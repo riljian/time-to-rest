@@ -3,9 +3,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#define DURATION 3
 
 static GMainLoop *loop;
+
+static unsigned long DURATION = 1800;
 
 NotifyNotification *
 notification_create ();
@@ -22,6 +23,10 @@ done_callback   (NotifyNotification *, const char *);
 int
 main (int argc, char **argv)
 {
+    if (argc > 1 && strtoul(argv[1], NULL, 10)) {
+        DURATION = strtoul(argv[1], NULL, 10);
+    }
+
     if (!notify_init ("Time to Rest"))
     {
         exit (1);
