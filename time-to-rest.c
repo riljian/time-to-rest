@@ -34,6 +34,8 @@ main (int argc, char **argv)
 
     loop = g_main_loop_new (NULL, FALSE);
 
+    sleep (DURATION);
+
     notification_create ();
 
     g_main_loop_run (loop);
