@@ -51,11 +51,8 @@ notification_create ()
     n = notify_notification_new ("Time to Rest",
                                  "Drink some water.",
                                  "avatar-default-symbolic");
-    notify_notification_set_hint (n,
-                                  "transient",
-                                  g_variant_new_boolean (TRUE));
     notify_notification_set_urgency (n, NOTIFY_URGENCY_CRITICAL);
-    notify_notification_set_timeout (n, NOTIFY_EXPIRES_DEFAULT);
+    notify_notification_set_timeout (n, NOTIFY_EXPIRES_NEVER);
     notify_notification_add_action (n,
                                     "done",
                                     "Done",
